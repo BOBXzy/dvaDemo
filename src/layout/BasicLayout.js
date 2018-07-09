@@ -11,9 +11,6 @@ class BasicLayout extends React.PureComponent {
         // const { history } = this.props;
         // const path1 = '/page1';
         const { routerData, match } = this.props;
-        console.log(this.props);
-        console.log(match.path);
-        console.log('进入render');
         return (
             <Layout>
                 <Header className="header">

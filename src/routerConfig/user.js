@@ -4,7 +4,7 @@ const UserRouter = [
         name: '用户登陆',
         component: () => import('../routes/User/Login'),
         // component: BasicLayout,
-        models: ['user'],
+        models: ['example'],
     },
     {
         path: 'forgetPwd',

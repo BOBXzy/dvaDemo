@@ -14,25 +14,15 @@ const { ConnectedRouter } = routerRedux;
 
 function RouterConfig({ history, app }) {
   const RouterData = getRouterData(app);
-  console.log(RouterData);
-  console.log(typeof RouterData[''].component);
   const BasicLayout = RouterData[''].component;
-  // console.log(RouterData['/page1'].component);
-  // const Products = RouterData['/products'].component;
   const UserLayout = RouterData['/user'].component;
-  // console.log(BasicLayoutMine);
   return (
     <LocaleProvider locale={zhCN}>
       <ConnectedRouter history={history}>
-      {/* <Router history={history}> */}
         <Switch>
           <Route path="/user" component={UserLayout} />
           <Route path="/" component={BasicLayout} />
-          {/* <MyRouter path="/" component={BasicLayout} /> */}
-          {/* <Route path="/products" component={Products} /> */}
-          {/* <Route path="/page1" exact component={Page1} /> */}
         </Switch>
-      {/* </Router> */}
       </ConnectedRouter>
     </LocaleProvider>
   );

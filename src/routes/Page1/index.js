@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import ProductList from '../../components/ProductList';
+import styles from './style.scss';
 
 const Products = ({ dispatch, products }) => {
     function handleDelete(id) {
@@ -11,7 +12,7 @@ const Products = ({ dispatch, products }) => {
     }
     return (
         <div>
-            <h2>List of Products</h2>
+            <h2 className={styles.topic}>List of Products</h2>
             <ProductList onDelete={handleDelete} products={products} />
         </div>
     );
@@ -21,3 +22,4 @@ const Products = ({ dispatch, products }) => {
 export default connect(({ products }) => ({
     products,
 }))(Products);
+

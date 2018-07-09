@@ -10,7 +10,13 @@ const productRoute = [
         path: 'page1',
         name: '第一页',
         modal: ['products'],
-        component: Page1
+        component: Page1,
+        children: [{
+            path: 'first',
+            name: 'option 1',
+            modal: ['products'],
+            // component: First
+        }]
     },
     {
         path: 'page2',

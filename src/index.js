@@ -1,5 +1,5 @@
 import dva from 'dva';
-import './index.css';
+import './index.scss';
 import { message } from 'antd';
 
 // import createHistory from 'history/createBrowserHistory';
