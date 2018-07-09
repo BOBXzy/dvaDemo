@@ -1,12 +1,17 @@
 import React from 'react';
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-import { Link, Route } from 'dva/router';
+import { Layout, Menu, Breadcrumb, Icon, Button } from 'antd';
+import { Link, Route, Switch } from 'dva/router';
 import { getRoutes } from '../utils/utils';
+import NotFound from '../routes/Exception/404';
+// import NotFoundMine from '../routes/Exception/mine';
+
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 class BasicLayout extends React.PureComponent {
+    componentDidMount() {
+    }
     render() {
         // const { history } = this.props;
         // const path1 = '/page1';
@@ -34,16 +39,16 @@ class BasicLayout extends React.PureComponent {
                             defaultOpenKeys={['sub1']}
                             style={{ height: '100%', borderRight: 0 }}
                         >
-                            <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
+                            <SubMenu key="sub1" title={<span><Icon type="user" />bill</span>}>
                                 
                                 <Menu.Item key="1">
                                     <Link
-                                        to='/page1'
+                                        to='/bill/page1'
                                     >page1</Link>
                                 </Menu.Item>
                                 <Menu.Item key="2">
                                     <Link
-                                        to='/page2'
+                                        to='/bill/page2'
                                     >page2</Link>
                                 </Menu.Item>
                                 <Menu.Item key="3">
@@ -74,13 +79,17 @@ class BasicLayout extends React.PureComponent {
                             <Breadcrumb.Item>App</Breadcrumb.Item>
                         </Breadcrumb>
                         <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+                            {/* <Switch> */}
                             {
                                 getRoutes(match.path, routerData).map(item =>
                                     (
+                                        // <Button key={item.key}>aaaa</Button>
                                         <Route path={item.path} component={item.component} key={item.key} />
                                     )
                                 )
                             }
+                                {/* <Route render={NotFound} /> */}
+                            {/* </Switch> */}
                         </Content>
                     </Layout>
                 </Layout>

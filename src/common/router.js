@@ -88,7 +88,10 @@ export const getRouterData = (app) => {
         if (menuKey) {
             menuItem = menuData[menuKey];
         }
-        routerConfig[path].component = dynamicWrapper(app, tempPath.models, tempPath.component);
+        // 当component存在时才动态绑定
+        if (tempPath.component) {
+            routerConfig[path].component = dynamicWrapper(app, tempPath.models, tempPath.component);
+        }
         // console.log(mineMenuData[path].component);
         let router = tempPath;
 
